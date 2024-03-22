@@ -25,7 +25,9 @@ body{
 
 }
 
-
+.profile-img{
+    border-radius: 50%;
+}
 
 .nav1-menu-list{
     color: black;
@@ -73,4 +75,21 @@ body{
     font-family: "Barlow", sans-serif;
     font-style: italic;
     font-weight: 800;
+}
+.header-nav2{
+    display: flex;
+    justify-content: space-around;
+}
+.nav2-list{
+    list-style-type: none;
+    display: flex;
+    gap: 50px;
+}
+.nav2-list li a{
+    font-weight: 800;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    padding: 2px 5px;
+    border-radius: 10px;
 }
