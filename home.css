@@ -1,8 +1,6 @@
 body{
     background: linear-gradient(#203F11,#539F2E,#E3AC59,#D0FFB9);
     font-family: "Barlow", sans-serif;
-    height: 100vh;
-
 }
 
 /* Nav 1 */
@@ -13,6 +11,9 @@ body{
     align-items: center;
 }
 .sattva-logo-title-header{
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .sattva-logo{
@@ -35,6 +36,7 @@ body{
     border-radius: 29.08px;
     opacity: 0.5;
     font-weight: 700;
+    
 }
 .nav1-menu-list li{
     list-style-type: none;
@@ -51,4 +53,24 @@ body{
     color: white;
     padding: 10px 20px;
     border-radius: 19.09px;
+}
+
+/* NAV 2 */
+.header-searchbar{
+    width: 200px;
+    height: 30px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border-width: 2px;
+    border-top-color: white;
+    border-left-color: white;
+    border-bottom-color: #7B7B7B;
+    border-right-color: #7B7B7B;
+}
+
+.header-searchbar::placeholder{
+    color: grey;
+    font-family: "Barlow", sans-serif;
+    font-style: italic;
+    font-weight: 800;
 }
