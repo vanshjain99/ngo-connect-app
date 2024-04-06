@@ -17,7 +17,6 @@ html{
 #login-form{
     display: grid;
     padding: 0 20px 0 20px;
-    border: 1px solid black;
     text-align: left;
     padding: 10px;
 }
@@ -27,7 +26,8 @@ h1{
 }
 .input{
     height: 1.5em;
+    margin-bottom: 1em;
 }
-#username{
-    margin-bottom: 0.5em;
+#submit-btn{
+    padding: 0.3rem;
 }
