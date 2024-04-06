@@ -1,0 +1,33 @@
+body, 
+html{
+    margin: 0;
+    padding: 0;
+    font-family:"Roboto", sans-serif;
+    background: #7A9E9F;
+}
+
+#form-container{
+    background: white;
+    max-width: 400px;
+    margin: 100px auto 0 auto;
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
+}
+#login-form{
+    display: grid;
+    padding: 0 20px 0 20px;
+    border: 1px solid black;
+    text-align: left;
+    padding: 10px;
+}
+h1{
+    font-size: 1.5em;
+    margin: 10px;
+}
+.input{
+    height: 1.5em;
+}
+#username{
+    margin-bottom: 0.5em;
+}
