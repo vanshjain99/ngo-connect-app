@@ -1,28 +1,75 @@
 <!DOCTYPE html>
 <HTML>
-    <HEAD>
-        <title></title>
-        <link rel="stylesheet" href="login.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-        
-    </HEAD>
-    <BODY>
-        <div id="form-container">
-            <h1>Log In</h1>
-            <form id="login-form">
-                <label for="username">username</label>
-                <input id="email" class="input" type="email" name="email"/>
-                <label for="password">password</label>
-                <input id="password" class="input" type="password" name="password"/>
-                <button id="submit-btn" type="submit">Submit</button>
-            </form>
-        </div>
-        <div id="create-acc-container">
-            <p id="">Don't have an account... <a>Sign Up.</a></p>
-        </div>
-        <script type="module" src="./login.js"></script>
-        
-    </BODY>
+
+<HEAD>
+    <title></title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+</HEAD>
+
+<BODY>
+    <div id="form-container">
+        <h1>Sign Up!</h1>
+        <form id="login-form">
+            <label for="text">First Name</label>
+            <input id="Fname" class="input" type="text" name="text" />
+            <label for="text">Last Name</label>
+            <input id="Lname" class="input" type="text" name="text" />
+            <label for="email">E-mail</label>
+            <input id="email" class="input" type="email" name="email" />
+            <label for="password">password</label>
+            <input id="password" class="input" type="password" name="password" />
+            <button id="submit-btn" type="submit">Submit</button>
+        </form>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAI7P0tWAsDuTqFl5WTThrb5NdW_dv7W10",
+            authDomain: "database-3cc82.firebaseapp.com",
+            databaseURL: "https://database-3cc82-default-rtdb.firebaseio.com",
+            projectId: "database-3cc82",
+            storageBucket: "database-3cc82.appspot.com",
+            messagingSenderId: "235488205901",
+            appId: "1:235488205901:web:26dc483d83c3807b2cd004"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const auth = getAuth();
+        const formEl = document.getElementById("login-form");
+        const FnameInp = document.getElementById("Fname");
+        const LnameInp = document.getElementById("Lname");
+        const userEmail = document.getElementById("email");
+        const userPass = document.getElementById("password");
+
+        const User = evt => {
+            evt.preventDefault();
+            createUserWithEmailAndPassword(auth, userEmail.value, userPass.value)
+                .then((Credential) => {
+                    set(ref(db, 'UserAuthList/' + Credential.user.uid),{
+                        Fname: FnameInp.value,
+                        Lname: LnameInp.value,
+
+                    })
+                    console.log("User created successfully");
+                })
+                .catch((error) => {
+                    alert(error.message);
+                    console.log(error.code);
+                    console.log(error.message);
+                })
+        }
+        formEl.addEventListener('submit', User);
+    </script>
+
+</BODY>
+
 </HTML>
