@@ -50,6 +50,7 @@ body{
 
 .header-login{
     background-color: #77926B;
+    position: absolute;
     border: none;
     text-decoration: none;
     color: white;
@@ -60,15 +61,15 @@ body{
 
 /* NAV 2 */
 .header-searchbar{
-    width: 200px;
+    /* position: fixed; */
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    width: calc(100% - 40px); /* Adjust as needed */
     height: 30px;
     padding: 10px 20px;
     border-radius: 30px;
     border-width: 2px;
-    border-top-color: white;
-    border-left-color: white;
-    border-bottom-color: #7B7B7B;
-    border-right-color: #7B7B7B;
+    border-color: #7B7B7B;
 }
 
 .header-searchbar::placeholder{
@@ -85,6 +86,12 @@ body{
     list-style-type: none;
     display: flex;
     gap: 50px;
+    /* display: grid; */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /* Adjust minmax values as needed */
+    gap: 5px;
+    /* Adjust gap as needed */
+    justify-content: center;
 }
 .nav2-list li a{
     font-weight: 800;
