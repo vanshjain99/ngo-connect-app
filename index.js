@@ -1,154 +1,76 @@
-// Your web app's Firebase configuration
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyD7RVWX53kuSgGuxWv1yE38vrDD2-0essI",
-  authDomain: "login-status-ba861.firebaseapp.com",
-  projectId: "login-status-ba861",
-  storageBucket: "login-status-ba861.appspot.com",
-  messagingSenderId: "901755126964",
-  appId: "1:901755126964:web:bcc088e2d3d097b11503e1"
-};
+allSideMenu.forEach(item=> {
+	const li = item.parentElement;
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  // Initialize variables
-  const auth = firebase.auth()
-  const database = firebase.database()
-  
-  // Set up our register function
-  function register () {
-    // Get all our input fields
-    email = document.getElementById('email').value
-    password = document.getElementById('password').value
-    full_name = document.getElementById('full_name').value
-    favourite_song = document.getElementById('favourite_song').value
-    milk_before_cereal = document.getElementById('milk_before_cereal').value
-  
-    // Validate input fields
-    if (validate_email(email) == false || validate_password(password) == false) {
-      alert('Email or Password is Outta Line!!')
-      return
-      // Don't continue running the code
-    }
-    if (validate_field(full_name) == false || validate_field(favourite_song) == false || validate_field(milk_before_cereal) == false) {
-      alert('One or More Extra Fields is Outta Line!!')
-      return
-    }
-   
-    // Move on with Auth
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(function() {
-      // Declare user variable
-      var user = auth.currentUser
-  
-      // Add this user to Firebase Database
-      var database_ref = database.ref()
-  
-      // Create User data
-      var user_data = {
-        email : email,
-        full_name : full_name,
-        favourite_song : favourite_song,
-        milk_before_cereal : milk_before_cereal,
-        last_login : Date.now()
-      }
-  
-      // Push to Firebase Database
-      database_ref.child('users/' + user.uid).set(user_data)
-  
-      // DOne
-      alert('User Created!!')
-    })
-    .catch(function(error) {
-      // Firebase will use this to alert of its errors
-      var error_code = error.code
-      var error_message = error.message
-  
-      alert(error_message)
-    })
-  }
-  
-  // Set up our login function
-  function login () {
-    // Get all our input fields
-    email = document.getElementById('email').value
-    password = document.getElementById('password').value
-  
-    // Validate input fields
-    if (validate_email(email) == false || validate_password(password) == false) {
-      alert('Email or Password is Outta Line!!')
-      return
-      // Don't continue running the code
-    }
-  
-    auth.signInWithEmailAndPassword(email, password)
-    .then(function() {
-      // Declare user variable
-      var user = auth.currentUser
-  
-      // Add this user to Firebase Database
-      var database_ref = database.ref()
-  
-      // Create User data
-      var user_data = {
-        last_login : Date.now()
-      }
-  
-      // Push to Firebase Database
-      database_ref.child('users/' + user.uid).update(user_data)
-  
-      // DOne
-      alert('User Logged In!!')
-  
-    })
-    .catch(function(error) {
-      // Firebase will use this to alert of its errors
-      var error_code = error.code
-      var error_message = error.message
-  
-      alert(error_message)
-    })
-  }
-  
-  
-  
-  
-  // Validate Functions
-  function validate_email(email) {
-    expression = /^[^@]+@\w+(\.\w+)+\w$/
-    if (expression.test(email) == true) {
-      // Email is good
-      return true
-    } else {
-      // Email is not good
-      return false
-    }
-  }
-  
-  function validate_password(password) {
-    // Firebase only accepts lengths greater than 6
-    if (password < 6) {
-      return false
-    } else {
-      return true
-    }
-  }
-  
-  function validate_field(field) {
-    if (field == null) {
-      return false
-    }
-  
-    if (field.length <= 0) {
-      return false
-    } else {
-      return true
-    }
-  }
+	item.addEventListener('click', function () {
+		allSideMenu.forEach(i=> {
+			i.parentElement.classList.remove('active');
+		})
+		li.classList.add('active');
+	})
+});
+
+
+
+
+// TOGGLE SIDEBAR
+const menuBar = document.querySelector('#content nav .bx.bx-menu');
+const sidebar = document.getElementById('sidebar');
+
+menuBar.addEventListener('click', function () {
+	sidebar.classList.toggle('hide');
+})
+
+
+
+
+
+
+
+const searchButton = document.querySelector('#content nav form .form-input button');
+const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
+const searchForm = document.querySelector('#content nav form');
+
+searchButton.addEventListener('click', function (e) {
+	if(window.innerWidth < 576) {
+		e.preventDefault();
+		searchForm.classList.toggle('show');
+		if(searchForm.classList.contains('show')) {
+			searchButtonIcon.classList.replace('bx-search', 'bx-x');
+		} else {
+			searchButtonIcon.classList.replace('bx-x', 'bx-search');
+		}
+	}
+})
+
+
+
+
+
+if(window.innerWidth < 768) {
+	sidebar.classList.add('hide');
+} else if(window.innerWidth > 576) {
+	searchButtonIcon.classList.replace('bx-x', 'bx-search');
+	searchForm.classList.remove('show');
+}
+
+
+window.addEventListener('resize', function () {
+	if(this.innerWidth > 576) {
+		searchButtonIcon.classList.replace('bx-x', 'bx-search');
+		searchForm.classList.remove('show');
+	}
+})
+
+
+
+const switchMode = document.getElementById('switch-mode');
+
+switchMode.addEventListener('change', function () {
+	if(this.checked) {
+		document.body.classList.add('dark');
+	} else {
+		document.body.classList.remove('dark');
+	}
+})

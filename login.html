@@ -2,19 +2,16 @@
 <HTML>
 
 <HEAD>
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form | CodingLab</title>
     <link rel="stylesheet" href="login.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 </HEAD>
 
 <BODY>
-    <div id="form-container">
-        <h1>Sign Up!</h1>
+    <!-- <div id="form-container">
+        <h1>Log IN</h1>
         <form id="login-form">
             <label for="text">First Name</label>
             <input id="Fname" class="input" type="text" name="text" />
@@ -26,10 +23,30 @@
             <input id="password" class="input" type="password" name="password" />
             <button id="submit-btn" type="submit">Submit</button>
         </form>
+    </div> -->
+    <div class="container">
+        <div class="wrapper">
+            <div class="title"><span>Login Form</span></div>
+            <form id="login-form">
+                <div class="row">
+                    <i class="fas fa-user"></i>
+                    <input id="email" type="text" placeholder="Email or Phone" required>
+                </div>
+                <div class="row">
+                    <i class="fas fa-lock"></i>
+                    <input id="password" type="password" placeholder="Password" required>
+                </div>
+                <div class="pass"><a href="#">Forgot password?</a></div>
+                <div class="row button">
+                    <input id="submit-btn" type="submit" value="Login">
+                </div>
+                <div class="signup-link">Not a member? <a href="signUp.html">Signup now</a></div>
+            </form>
+        </div>
     </div>
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
         import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
         const firebaseConfig = {
             apiKey: "AIzaSyAI7P0tWAsDuTqFl5WTThrb5NdW_dv7W10",
@@ -45,27 +62,20 @@
         const db = getDatabase(app);
         const auth = getAuth();
         const formEl = document.getElementById("login-form");
-        const FnameInp = document.getElementById("Fname");
-        const LnameInp = document.getElementById("Lname");
         const userEmail = document.getElementById("email");
         const userPass = document.getElementById("password");
 
         const User = evt => {
             evt.preventDefault();
-            createUserWithEmailAndPassword(auth, userEmail.value, userPass.value)
-                .then((Credential) => {
-                    set(ref(db, 'UserAuthList/' + Credential.user.uid),{
-                        Fname: FnameInp.value,
-                        Lname: LnameInp.value,
-
-                    })
-                    console.log("User created successfully");
+            signInWithEmailAndPassword(auth, userEmail.value, userPass.value)
+                .then((result) => {
+                    window.location.href = "Home.html";
+                    console.log(result)
                 })
                 .catch((error) => {
-                    alert(error.message);
-                    console.log(error.code);
-                    console.log(error.message);
-                })
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                });
         }
         formEl.addEventListener('submit', User);
     </script>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Login Form | CodingLab</title> 
+    <link rel="stylesheet" href="signUp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+</HEAD>
+
+<BODY>
+    <div class="container">
+        <div class="wrapper">
+          <div class="title"><span>SignUp Form</span></div>
+          <form id="login-form">
+            <div class="row">
+              <i class="fas fa-user"></i>
+              <input id="Fname" type="text" placeholder="Frist Name" required>
+            </div>
+            <div class="row">
+                <i class="fas fa-user"></i>
+                <input id="Lname" type="text" placeholder="Last Name" required>
+            </div>
+            <div class="row">
+                <i class="fas fa-user"></i>
+                <input id="email" type="text" placeholder="Email or Phone" required>
+            </div>
+            <div class="row">
+              <i class="fas fa-lock"></i>
+              <input id="password" type="password" placeholder="Password" required>
+            </div>
+            <div class="row button">
+              <input id="submit-btn" type="submit" value="Sign Up">
+            </div>
+          </form>
+        </div>
+      </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAI7P0tWAsDuTqFl5WTThrb5NdW_dv7W10",
+            authDomain: "database-3cc82.firebaseapp.com",
+            databaseURL: "https://database-3cc82-default-rtdb.firebaseio.com",
+            projectId: "database-3cc82",
+            storageBucket: "database-3cc82.appspot.com",
+            messagingSenderId: "235488205901",
+            appId: "1:235488205901:web:26dc483d83c3807b2cd004"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const auth = getAuth();
+        const formEl = document.getElementById("login-form");
+        const FnameInp = document.getElementById("Fname");
+        const LnameInp = document.getElementById("Lname");
+        const userEmail = document.getElementById("email");
+        const userPass = document.getElementById("password");
+
+        const User = evt => {
+            evt.preventDefault();
+            createUserWithEmailAndPassword(auth, userEmail.value, userPass.value)
+                .then((Credential) => {
+                    set(ref(db, 'UserAuthList/' + Credential.user.uid),{
+                        Fname: FnameInp.value,
+                        Lname: LnameInp.value,
+
+                    })
+                    console.log("User created successfully");
+                    window.location.href = "Home.html"
+                })
+                .catch((error) => {
+                    alert(error.message);
+                    console.log(error.code);
+                    console.log(error.message);
+                })
+        }
+        formEl.addEventListener('submit', User);
+    </script>
+
+</BODY>
+
+</HTML>
