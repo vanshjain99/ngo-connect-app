@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,158 +8,210 @@
     <link rel="stylesheet" href="home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <Nav class="header-nav">
-           <section class="header-nav1">
-            <div class="sattva-logo-title-header">
-                    <img class="sattva-logo" width="50px" height="50px" src="/assests/1.png" alt="Sattva Logo">
-                <h1 class="sattva-logo-title">SATTVA</h1>
-            </div>
-            <div id="nav-1-menu">
-                <ul class="nav1-menu-list menu-list">
-                    <li class="nav1-menu-items"> 
-                        <a class="nav1-menu-items-link"href="/Home.html">HOME</a>
-                    </li>
-                    <li class="nav1-menu-items">
-                        <a class="nav1-menu-items-link" href=".About">ABOUT</a>
-                    </li>
-                    <li class="nav1-menu-items">
-                        <a class="nav1-menu-items-link" href="">
-                            ALL NGOs
+            <section class="header-nav1">
+                <div class="sattva-logo-title-header">
+                    <h1 class="sattva-logo-title">SATTVA</h1>
+                </div>
+                <div id="nav-1-menu" class="nav-center">
+                    <ul class="nav1-menu-list menu-list">
+                        <li class="nav1-menu-items">
+                            <a class="nav1-menu-items-link" href="/home.html">HOME</a>
+                        </li>
+                        <li class="nav1-menu-items">
+                            <a class="nav1-menu-items-link" href="About.html">ABOUT</a>
+                        </li>
+                        <li class="nav1-menu-items">
+                            <a class="nav1-menu-items-link" href="NGOs.html">
+                                ALL NGOs
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <div>
+                        <a href="/login.html" id="loginButton" class="header-login">Login/SignUp</a>
+                    </div>
+                    <div>
+                        <button id="signOutButton" class="header-login">sign out</button>
+                    </div>
+                    <div>
+                        <a class="header-personalinfo" href="personalinfo.html" id="profile">
+                            <img class="profile-img" src="assests/2.png" width="50px" height="50px" alt="profileimage">
+                            <span id="profile-name"></span> 
                         </a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-            <button class="header-login">Login/SignUp</button>
-            </div>
-            <div>
-                <a class="header-personalinfo" href="/personalinfo.html">
-                    <img class="profile-img"src="assests/2.png" width="50px" height="50px" alt="profileimage">
-                </a>
-                
-            </div>
-           </section>
-           <hr>
-           <section class="header-nav2">
-            <input class="header-searchbar" type="text" placeholder="Search">
-            <div class="header-nav2">
-                <ul class="nav2-list">
-                    <li class="nav2-list-items">
-                        <a href="/donate.html" class="nav2-list-items-links">DONATE</a>
-                    </li>
-                    
-                    <li class="nav2-list-items">
-                        <a href="/volunteer.html" class="nav2-list-items-links">VOLUNTEER</a>
-                    </li>
-                    <li class="nav2-list-items">
-                        <a href="/bazaar.html" class="nav2-list-items-links">BAZAAR</a>
-                    </li>
-                    <li class="nav2-list-items">
-                        <a href="/dashboard.html" class="nav2-list-items-links">DASHBOARD</a>
-                    </li>
-                </ul>
-            </div>
-           </section>
+                    </div>
+                </div>
+            </section>
+            <hr>
+            <section class="header-nav2">
+                <input class="header-searchbar" type="text" placeholder="Search">
+                <div class="menu-flex-right">
+                    <ul class="nav2-list">
+                        <li class="nav2-list-items">
+                            <a href="donate.html" class="nav2-list-items-links">DONATE</a>
+                        </li>
+
+                        <li class="nav2-list-items">
+                            <a href="volunteer.html" class="nav2-list-items-links">VOLUNTEER</a>
+                        </li>
+                        <li class="nav2-list-items">
+                            <a href="bazaar.html" class="nav2-list-items-links">BAZAAR</a>
+                        </li>
+                        <li class="nav2-list-items">
+                            <a href="dashboard.html" class="nav2-list-items-links">DASHBOARD</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
         </Nav>
         <hr>
-    </header>  
+    </header>
     <main>
         <article class="about-sattva">
-            <p class="about-title"><STRong>LETS MAKE WORLD A BETTER PLACE FOR EVERYONE</STRong></p>
-            <div class="about-paragraphs">
-                <p class="about-paraText">As an innovation our digital application provides a platform to connect any individual person to the social service and welfare organizations like NGO’s to contribute to social service events that take place in 
-                    their locality</p>
-                <p class="about-paraText">The only place for all the good you need to do. We bridge your soul to the blessings,we bridge the able to the needy.</p>
-            </div>
-            <a href="/about.html">Read More</a>
-        </article>
-        <article class="cause">
-            <p class="cause-title">Support the cause that you believe in.</p>
-            <div class="cause-scrollbar causde-menu cause-bar">
-                <div class="cause-item"><a href="volunteer.html"><img  class="cause-item-image" src="/assests/mdi--education-outline (1).svg" alt="Education and Literacy">
-                <p class="cause-item-text">Education and Literacy</p></a></div>
-
-                <div class="cause-item"><a href="volunteer.html"><img  class="cause-item-image" src="/assests/fa6-solid--children.svg" alt="Children">
-                <p class="cause-item-text">Children</p></a></div>
-
-                <div class="cause-item"><a href="volunteer.html"><img  class="cause-item-image" src="/assests/solar--health-outline.svg" alt="Health">
-                <p class="cause-item-text">Health</p></a></div>
-
-                <div class="cause-item"><a href="volunteer.html"><img  class="cause-item-image" src="/assests/tabler--disabled.svg" alt="Person with Disabilities">
-                <p class="cause-item-text">Person with Disabilites</p></a></div>
-
-                <div class="cause-item"><a href="volunteer.html"><img  class="cause-item-image" src="/assests/mdi--women.svg" alt="Women Empowerment">
-                <p class="cause-item-text"> Women Empowerment</p></a></div>
-
-                <div class="cause-item"><a href="volunteer.html"><img  class="cause-item-image" src="/assests/tabler--old.svg" alt="Senior">
-                <p class="cause-item-text">Seniors</p></a></div>
-            </div>
-
-        </article>
-        <article class="volunteerlistings">
-            <p class="volunteerlistings-title">
-                Let's make Earth a better place to live.
-            </p>
-
-            <div class="volunteerlist">
-                <div class="volunteerlist-items">
-                    <figure>
-                        <img class="volunteerlist-item-img" height="250px"
-                        width="250px" src="/assests/awarenesscampaignthumb.jpg" alt="">
-                    </figure>
-                    <div class="volunteerlist-item-para">
-                        <p>Creating Awareness Volunteers</p>
-                        <p>from</p>
-                        <p>to</p>
-                        <p>location</p>
-                        <p>Project Baala</p>
-                    </div>
-                </div>
-                <div class="volunteerlist-items">
-                    <figure>
-                        <img class="volunteerlist-item-img" height="250px" width="250px" src="/assests/contentmanagemntcreationthumb (1).jpg" alt="">
-                    </figure>
-                    <div class="volunteerlist-item-para">
-                        <p>Content Writing Volunteer</p>
-                        <p>from</p>
-                        <p>to</p>
-                        <p>location</p>
-                        <p>TareZameenFoundation</p>
-                    </div>
-                </div>
-                <div class="volunteerlist-items">
-                    <figure>
-                        <img class="volunteerlist-item-img" height="250px" width="250px" src="/assests/legalthumb.jpg" alt="">
-                    </figure>
-                    <div class="volunteerlist-item-para">
-                        <p>Legal Volunteer</p>
-                        <p>from</p>
-                        <p>to</p>
-                        <p>location</p>
-                        <p>Muse Foundation</p>
-                    </div>
-                </div>
-                <div class="volunteerlist-items">
-                    <figure>
-                        <img class="volunteerlist-item-img" height="250px" width="250px" src="/assests/socialmediastrategythumb.jpg" alt="">
-                    </figure>
-                    <div class="volunteerlist-item-para">
-                        <p>Social Media Strategist</p>
-                        <p>from</p>
-                        <p>to</p>
-                        <p>location</p>
-                        <p>Alamba Charitable Trust</p>
-                    </div>
+            <div class="col-12 bgimage">
+                <div class="about-title"><STRong>LETS MAKE WORLD A BETTER PLACE FOR EVERYONE</STRong></div>
+                <div class="about-paragraphs">
+                    <div class="about-paraText">As an innovation our digital application provides a platform to connect
+                        any individual person to the social service and welfare organizations like NGO’s to contribute
+                        to social service events that take place in
+                        their locality</div>
+                    <div class="about-paraText-right">The only place for all the good you need to do. We bridge your
+                        soul to the blessings,we bridge the able to the needy.</div>
                 </div>
             </div>
-            <a href="volunteer.html">See All</a>
-
         </article>
+        <h2 class="cause-title">Support the cause that you believe in.<h1>
+                <article class="cause-gallery">
+
+                    <div class="cause-scrollbar causde-menu cause-bar">
+                        <div class="cause-item"><a href="volunteer.html"><img class="cause-item-image"
+                                    src="assests/mdi--education-outline (1).svg" alt="Education and Literacy">
+                                <p class="cause-item-text">Education and Literacy</p>
+                            </a></div>
+
+                        <div class="cause-item"><a href="volunteer.html"><img class="cause-item-image"
+                                    src="assests/fa6-solid--children.svg" alt="Children">
+                                <p class="cause-item-text">Children</p>
+                            </a></div>
+
+                        <div class="cause-item"><a href="volunteer.html"><img class="cause-item-image"
+                                    src="assests/solar--health-outline.svg" alt="Health">
+                                <p class="cause-item-text">Health</p>
+                            </a></div>
+
+                        <div class="cause-item"><a href="volunteer.html"><img class="cause-item-image"
+                                    src="assests/tabler--disabled.svg" alt="Person with Disabilities">
+                                <p class="cause-item-text">Person with Disabilites</p>
+                            </a></div>
+
+                        <div class="cause-item"><a href="volunteer.html"><img class="cause-item-image"
+                                    src="assests/mdi--women.svg" alt="Women Empowerment">
+                                <p class="cause-item-text"> Women Empowerment</p>
+                            </a></div>
+
+                        <div class="cause-item"><a href="volunteer.html"><img class="cause-item-image"
+                                    src="assests/tabler--old.svg" alt="Senior">
+                                <p class="cause-item-text">Seniors</p>
+                            </a></div>
+                    </div>
+
+                </article>
+
+
+                <h2 class="cause-title"> Let's make Earth a better place to live.<h1>
+
+                        <article class="volunteerlistings">
+
+
+                            <div class="volunteerlist">
+                                <a href="https://forms.office.com/r/3hdXFrkXu3">
+                                    <div class="volunteerlist-items">
+                                        <figure class="text-align-left">
+                                            <img class="volunteerlist-item-img" height="250px" width="250px"
+                                                src="assests/awarenesscampaignthumb.jpg" alt="">
+                                        </figure>
+                                        <div class="volunteerlist-item-para">
+                                            <h2>Climate change- Volunteers required for 3 months</h2>
+                                            <p>from : 23 march 2024</p>
+                                            <p>To : 7th march 2024</p>
+                                            <p>location : nfwvk kjr vjr</p>
+                                            <h2>NGO :</h2>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="volunteerlist-items">
+                                        <div class="volunteerlist-item-para">
+                                            <h2>Social Right and Justice - Volunteers required for 4 months</h2>
+                                        </div>
+                                        <figure class="text-align-right">
+                                            <img class="volunteerlist-item-img" height="250px" width="250px"
+                                                src="assests/contentmanagemntcreationthumb (1).jpg" alt="">
+                                        </figure>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="volunteerlist-items">
+                                        <figure class="text-align-left">
+                                            <img class="volunteerlist-item-img" height="250px" width="250px"
+                                                src="assests/legalthumb.jpg" alt="">
+                                        </figure>
+                                        <div class="volunteerlist-item-para">
+                                            <h2>Education sector</h2>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="volunteerlist-items">
+                                        <div class="volunteerlist-item-para">
+                                            <h2>Healthcare</h2>
+                                        </div>
+                                        <figure class="text-align-right">
+                                            <img class="volunteerlist-item-img" height="250px" width="250px"
+                                                src="assests/image 3.png" alt="">
+                                        </figure>
+                                    </div>
+                                </a>
+                                <div class="volunteerlist-items">
+                                    <figure class="text-align-left">
+                                        <img class="volunteerlist-item-img" height="250px" width="250px"
+                                            src="assests/socialmediastrategythumb.jpg" alt="">
+                                    </figure>
+                                    <div class="volunteerlist-item-para">
+                                        <h2>Environment and sustainbilty</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="green color">
+                                <a href="volunteer.html" class="text-align-right">See More</a>
+                            </div>
+
+                        </article>
     </main>
+
+    <article class="cause-gallery">
+
+        <div class="fourbox">
+            <div class="fourbox-item height250">&nbsp;</div>
+            <div class="fourbox-item height250">&nbsp;</div>
+            <div class="fourbox-item height250">&nbsp;</div>
+            <div class="fourbox-item height250">&nbsp;</div>
+
+
+        </div>
+
+    </article>
+    <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js"></script>
+    <script src="/home.js" type="module" ></script>
     <footer>
         <section class="footer-logo">
             <img class="sattva-logo" src="/assests/1.png" alt="Sattva">
@@ -194,4 +247,5 @@
 
     </footer>
 </body>
+
 </html>
