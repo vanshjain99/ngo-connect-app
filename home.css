@@ -10,6 +10,7 @@ body{
     margin: 10px 20px;
     align-items: center;
 }
+/* LOGO */
 .sattva-logo-title-header{
     display: flex;
     align-items: center;justify-content: flex-start;
